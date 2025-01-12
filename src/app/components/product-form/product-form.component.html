@@ -1,0 +1,59 @@
+// src/app/components/product-form/product-form.component.html
+<h2 mat-dialog-title>{{ isEditing ? 'Edit' : 'Add' }} Product</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="Product title">
+      <mat-error *ngIf="productForm.get('title')?.errors?.['required']">
+        Title is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" placeholder="0.00">
+      <mat-error *ngIf="productForm.get('price')?.errors?.['required']">
+        Price is required
+      </mat-error>
+      <mat-error *ngIf="productForm.get('price')?.errors?.['min']">
+        Price must be greater than 0
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="4"></textarea>
+      <mat-error *ngIf="productForm.get('description')?.errors?.['required']">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category</mat-label>
+      <input matInput formControlName="category">
+      <mat-error *ngIf="productForm.get('category')?.errors?.['required']">
+        Category is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="image" placeholder="https://...">
+      <mat-error *ngIf="productForm.get('image')?.errors?.['required']">
+        Image URL is required
+      </mat-error>
+      <mat-error *ngIf="productForm.get('image')?.errors?.['pattern']">
+        Please enter a valid URL starting with http:// or https://
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">
+      {{ isEditing ? 'Update' : 'Add' }}
+    </button>
+  </mat-dialog-actions>
+</form>
