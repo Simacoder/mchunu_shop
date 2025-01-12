@@ -1,27 +1,93 @@
-# MchunuShop
+# Mchunu Shop 🛒
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+Welcome to Mchunu Shop, an Angular-based e-commerce platform that provides seamless management of products and users. This project is designed to showcase key Angular concepts such as routing, guards, reactive forms, and HTTP client integration with a mock API
 
-## Development server
+# Table of Contents
+- Features
+- Tech Stack
+- Setup and Installation
+- Folder Structure
+- Usage
+- Development
+- Contributing
+- License
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Features
 
-## Code scaffolding
+- **Authentication System:**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  - Login page with form validation.
+  - AuthGuard for route protection.
+- **Dashboard:**
 
-## Build
+    - Navigate between product and user management.
+- **Product Management:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    - View product list.
+    - Add, edit, and delete products.
+- **User Management:**
 
-## Running unit tests
+    - View user list.
+    - Manage user information.
+- **Responsive UI:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Built with Angular Material for a clean and responsive design.
 
-## Running end-to-end tests
+## Tech Stack
+- **Frontend:** Angular, Angular Material
+- **Backend:** Mock API using [Fake Store API](https://fakestoreapi.com/)
+- **Styling:** SCSS, Angular Material components
+- **Tooling:** TypeScript, RxJS
+  
+## Setup and Installation
+Follow these steps to set up the project locally:
+1. **Clone the Repository:**
+   
+   ```bash
+        git clone https://github.com/Simacoder/mchunu_shop.git
+        cd mchunu_shop
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```
+2. **Install Dependencies:** Make sure you have Node.js and npm installed. Then run:
+   ```bash
+        npm install
 
-## Further help
+   ```
+3. **Run the Application:** Start the Angular development server:
+ ```bash
+        ng serve
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+ ```
+The application will be accessible at http://localhost:4200
+
+## Folder Structure
+```bash
+    src/
+├── app/
+│   ├── components/       # Reusable UI components
+│   │   ├── login/        # Login page component
+│   │   ├── product-list/ # Product list page component
+│   │   └── user-list/    # User list page component
+│   ├── guards/           # Route guards
+│   ├── models/           # TypeScript interfaces and models
+│   ├── services/         # API services
+│   ├── app-routing.module.ts # Application routes
+│   └── app.module.ts     # Root module
+├── assets/               # Static assets
+├── environments/         # Environment-specific configurations
+└── index.html            # Main HTML entry point
+
+``` 
+# Usage
+
+- Navigate to /login to log in to the application.
+- Access /products for product management.
+- Access /users for user management.
+- Modify the apiUrl in product.service.ts if you wish to connect to a different API.
+
+# License
+This project is licensed under the MIT License
+
+# AUTHOR
+- Simanga Mchunu
+
